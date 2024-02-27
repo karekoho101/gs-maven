@@ -21,7 +21,7 @@ jobs:
 
     steps:
     - name: Change working directory
-      run: cd complete
+      run: pwd; cd complete
     - uses: actions/checkout@v3
     - name: Set up JDK 17
       uses: actions/setup-java@v3
