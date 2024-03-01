@@ -1,4 +1,5 @@
-FROM arm64v8/eclipse-temurin:11
+FROM eclipse-temurin:17-jdk-alpine
+# FROM arm64v8/eclipse-temurin:11
 COPY target/gs-maven-0.1.0.jar hello-mvn.jar
 ENTRYPOINT ["java","-jar","/hello-mvn.jar"]
 
