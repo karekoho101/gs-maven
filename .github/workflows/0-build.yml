@@ -15,7 +15,7 @@ on:
     branches: [ "main" ]
 # defaults: run: working-directory: ./complete
 jobs:
-  build:
+  build_jar:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v3
@@ -35,8 +35,9 @@ jobs:
         # COPY target/gs-maven-0.1.0.jar hello-mvn.jar
         path: target/gs-maven-0.1.0.jar
 
-  push_to_registry:
+  build_and_push_image:
     name: Push Docker image to Docker Hub
+    needs: build_jar
     runs-on: ubuntu-latest
     # runs-on: macos-latest
     steps:
@@ -58,7 +59,7 @@ jobs:
         uses: actions/download-artifact@v2
         with:
           name: hello-mvn
-          path: target/gs-maven-0.1.0.jar
+          path: target
 
       - name: Extract metadata (tags, labels) for Docker
         id: meta
