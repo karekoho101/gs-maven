@@ -6,14 +6,14 @@
 # separate terms of service, privacy policy, and support
 # documentation.
 
-name: Java CI with Maven
+name: Build jar with Maven. Build and publish Docker image.
 
 on:
   push:
     branches: [ "main" ]
   pull_request:
     branches: [ "main" ]
-# defaults: run: working-directory: ./complete
+
 jobs:
   build_jar:
     runs-on: ubuntu-latest
@@ -32,7 +32,6 @@ jobs:
       uses: actions/upload-artifact@v2
       with:
         name: hello-mvn
-        # COPY target/gs-maven-0.1.0.jar hello-mvn.jar
         path: target/gs-maven-0.1.0.jar
 
   build_and_push_image:
