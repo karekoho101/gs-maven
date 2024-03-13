@@ -58,6 +58,7 @@ jobs:
         uses: actions/download-artifact@v2
         with:
           name: hello-mvn
+          path: target/gs-maven-0.1.0.jar
 
       - name: Extract metadata (tags, labels) for Docker
         id: meta
